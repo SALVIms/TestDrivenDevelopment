@@ -62,12 +62,11 @@ public class testsTDD {
 	@Test
 	public void GetOrElseBuscaLaClaveYLaEncuentra() {
 		tdd.put("Nombre", "Luis");
-		assertEquals("Luis", tdd.getorelse("Luis","valorPorDefecto"));
+		assertEquals("Luis", tdd.getorelse("Nombre", "valorPorDefecto"));
 	}
 	
 	@Test
 	public void GetOrElseBuscaLaClaveYnoExisteSacaValorDefault() {
-		tdd.put("Nombre","Luis");
-		assertEquals("ValorPorDefecto", tdd.getorelse("NoExisteNombre","valorPorDefecto"));
+		assertEquals("valorDefecto", tdd.getorelse("Nombre", "valorDefecto"));
 	}
 }
