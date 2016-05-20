@@ -24,4 +24,17 @@ public class TDD {
 		}
 		return aux;
 	}
+
+	// Busca la clave en la tabla y devuelve el valor asociado, si la clave no
+	// existe devuelve un valor por defecto
+	public String getorelse(String clave, String valorDefecto) {
+		String aux = "";
+		if (tabla.containsKey(clave)) {
+			aux = tabla.get(clave);
+		} else {
+			aux = tabla.get(valorDefecto);
+		}
+		return aux;
+	}
+
 }
