@@ -56,6 +56,7 @@ public class testsTDD {
 
 	@Test(expected = TDDException.class)
 	public void GetClaveNoExiste() throws TDDException {
+		tdd.put("Nombre", "Luis");
 		tdd.get("NoExisto");
 	}
 
@@ -64,20 +65,35 @@ public class testsTDD {
 		tdd.put("Nombre", "Luis");
 		assertEquals("Luis", tdd.getorelse("Nombre", "valorPorDefecto"));
 	}
-	
+
 	@Test
 	public void GetOrElseBuscaLaClaveYnoExisteSacaValorDefault() {
+		tdd.put("NoNombre", "valor");
 		assertEquals("valorDefecto", tdd.getorelse("Nombre", "valorDefecto"));
 	}
-	
+
 	@Test
-	public void ContainsKeyBuscaLaClaveYlaEncuetraDevuelveTRUE() throws Exception {
+	public void ContainsKeyBuscaLaClaveYlaEncuetraDevuelveTRUE()
+			throws Exception {
 		tdd.put("Nombre", "Luis");
 		assertEquals(true, tdd.containsKey("Nombre"));
 	}
-	
+
 	@Test
-	public void ContainsKeyBuscaLaClaveYNOlaEncuetraDevuelveFALSE() throws Exception {
+	public void ContainsKeyBuscaLaClaveYNOlaEncuetraDevuelveFALSE()
+			throws Exception {
+		tdd.put("NoNombre", "valor");
 		assertEquals(false, tdd.containsKey("Nombre"));
+	}
+
+	@Test
+	public void RemoveBorraLaClaveYDevuelveTRUEPorqueLaEncuentra() {
+		tdd.put("Nombre", "Luis");
+		assertEquals(true, tdd.remove("Nombre"));
+	}
+
+	public void RemoveBorraLaClaveYDevuelveFALSEPorqueNoLaEncuentra() {
+		tdd.put("NoNombre", "valor");
+		assertEquals(false, tdd.remove("Nombre"));
 	}
 }
