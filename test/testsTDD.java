@@ -69,4 +69,15 @@ public class testsTDD {
 	public void GetOrElseBuscaLaClaveYnoExisteSacaValorDefault() {
 		assertEquals("valorDefecto", tdd.getorelse("Nombre", "valorDefecto"));
 	}
+	
+	@Test
+	public void ContainsKeyBuscaLaClaveYlaEncuetraDevuelveTRUE() throws Exception {
+		tdd.put("Nombre", "Luis");
+		assertEquals(true, tdd.containsKey("Nombre"));
+	}
+	
+	@Test
+	public void ContainsKeyBuscaLaClaveYNOlaEncuetraDevuelveFALSE() throws Exception {
+		assertEquals(false, tdd.containsKey("Nombre"));
+	}
 }
