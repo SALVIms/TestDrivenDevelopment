@@ -96,4 +96,33 @@ public class testsTDD {
 		tdd.put("NoNombre", "valor");
 		assertEquals(false, tdd.remove("Nombre"));
 	}
+
+	@Test
+	public void SizeEnListaVaciaDevuelve0() {
+		assertEquals(0, tdd.size());
+	}
+
+	@Test
+	public void SizeEnListaConUnElementoDevuelve1() {
+		tdd.put("Nombre", "Luis");
+		assertEquals(1, tdd.size());
+	}
+
+	@Test
+	public void SizeEnListaConCincoElementosDevuelve5() {
+		tdd.put("Nombre", "Luis");
+		tdd.put("Apellido", "Martin");
+		tdd.put("DNI", "13324");
+		tdd.put("Pais", "ESP");
+		tdd.put("Codigo", "321");
+		assertEquals(5, tdd.size());
+
+	}
+
+	@Test
+	public void SizeEnListaConDosElementoIgualesDevuelve2() {
+		tdd.put("Nombre", "Luis");
+		tdd.put("Nombre", "Luis");
+		assertEquals(1, tdd.size());
+	}
 }
