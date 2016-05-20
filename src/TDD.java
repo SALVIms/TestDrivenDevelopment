@@ -37,4 +37,9 @@ public class TDD {
 		return aux;
 	}
 
+	// Devuelve TRUE si la clave existe y FALSE en caso contrario
+	public boolean containsKey(String clave) {
+		return tabla.containsKey(clave) == true;
+	}
+
 }
