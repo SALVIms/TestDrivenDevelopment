@@ -54,4 +54,9 @@ public class TDD {
 		return encontrado;
 	}
 
+	// Devuelve el número de entradas del array asociativo
+	public Object size() {
+		return tabla.size();
+	}
+
 }
