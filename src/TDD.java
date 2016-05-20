@@ -6,7 +6,11 @@ public class TDD {
 	// crea una nueva entrada (un nuevo par) en la tabla. Si la clave existía
 	// toma el nuevo valor.
 	public void put(String clave, String valor) {
-		tabla.put(clave, valor);
+		if (tabla.contains(clave)) {
+			tabla.replace(clave, valor);
+		} else {
+			tabla.put(clave, valor);
+		}
 	}
 
 	// Busca la clave en la tabla y devuelve el valor asociado, si la clave no
@@ -17,13 +21,12 @@ public class TDD {
 			aux = tabla.get(clave);
 		} else {
 			try {
-				throw new TDDException(tabla.toString()); //Fallo TDDException.java
+				throw new TDDException(tabla.toString()); // Fallo
+															// TDDException.java
 			} catch (TDDException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
 		return aux;
 	}
 }

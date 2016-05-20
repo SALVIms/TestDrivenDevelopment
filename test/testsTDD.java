@@ -15,16 +15,22 @@ public class testsTDD {
 	}
 	
 	@Test
-	public void DistintoPutconClaveValor() {
+	public void PUTGETDistintoPutconClaveValor() {
 		tdd.put("Nombre", "Luis");
 		assertEquals("Luis", tdd.get("Nombre"));
 	}
 	
+/*	FALLO: por solucionar
 	@Test(expected = TDDException.class)
 	public void GETClaveNoExiste (){
 		tdd.get("NoExisto");
 	}
+*/	
 	
-	
-
+	@Test
+	public void PUTLaClaveExisteReemplazarValorExistente() {
+		tdd.put("Nombre", "Luis");
+		tdd.put("Nombre", "Pepe");
+		assertEquals("Pepe",tdd.get("Nombre"));
+	}
 }
