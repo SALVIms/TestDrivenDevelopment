@@ -15,17 +15,12 @@ public class TDD {
 
 	// Busca la clave en la tabla y devuelve el valor asociado, si la clave no
 	// existe eleva una excepción
-	public String get(String clave) {
+	public String get(String clave) throws TDDException {
 		String aux = " ";
 		if (tabla.containsKey(clave)) {
 			aux = tabla.get(clave);
 		} else {
-			try {
-				throw new TDDException(tabla.toString()); // Fallo
-															// TDDException.java
-			} catch (TDDException e) {
-				e.printStackTrace();
-			}
+			throw new TDDException(tabla.toString());
 		}
 		return aux;
 	}

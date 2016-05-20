@@ -13,25 +13,25 @@ public class testsTDD {
 	}
 
 	@Test
-	public void PUTGETDistintoPutconClaveValor() {
+	public void PUTGETDistintoPutconClaveValor() throws TDDException {
 		tdd.put("Nombre", "Luis");
 		assertEquals("Luis", tdd.get("Nombre"));
 	}
 
 	@Test
-	public void PUTGETconValorNumeros() {
+	public void PUTGETconValorNumeros() throws TDDException {
 		tdd.put("DNI", "1234");
 		assertEquals("1234", tdd.get("DNI"));
 	}
 
 	@Test
-	public void PUTGETDistintoPutconValorVacio() {
+	public void PUTGETDistintoPutconValorVacio() throws TDDException {
 		tdd.put("pais", "");
 		assertEquals("", tdd.get("pais"));
 	}
 
 	@Test
-	public void PUTGETDosClaveValorDistintos() {
+	public void PUTGETDosClaveValorDistintos() throws TDDException {
 		tdd.put("Nombre", "Pepe");
 		assertEquals("Pepe", tdd.get("Nombre"));
 		tdd.put("Apellido", "Martin");
@@ -39,7 +39,8 @@ public class testsTDD {
 	}
 
 	@Test
-	public void PUTGETDosClavesDiferentesConDosValoresIguales() {
+	public void PUTGETDosClavesDiferentesConDosValoresIguales()
+			throws TDDException {
 		tdd.put("Nombre", "Pepe");
 		assertEquals("Pepe", tdd.get("Nombre"));
 		tdd.put("Apellido", "Pepe");
@@ -47,14 +48,14 @@ public class testsTDD {
 	}
 
 	@Test
-	public void PUTLaClaveExisteReemplazaValorExistente() {
+	public void PUTLaClaveExisteReemplazaValorExistente() throws TDDException {
 		tdd.put("Nombre", "Luis");
 		tdd.put("Nombre", "Pepe");
 		assertEquals("Pepe", tdd.get("Nombre"));
 	}
 
 	@Test(expected = TDDException.class)
-	public void GETClaveNoExiste() {
+	public void GETClaveNoExiste() throws TDDException {
 		tdd.get("NoExisto");
 	}
 
