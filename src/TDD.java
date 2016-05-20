@@ -42,4 +42,14 @@ public class TDD {
 		return tabla.containsKey(clave) == true;
 	}
 
+	public boolean remove(String clave) {
+		boolean encontrado = false;
+
+		if (tabla.containsKey(clave)) {
+			tabla.remove(clave);
+			encontrado = true;
+		}
+		return encontrado;
+	}
+
 }
