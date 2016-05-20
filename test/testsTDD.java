@@ -13,25 +13,25 @@ public class testsTDD {
 	}
 
 	@Test
-	public void PUTGETDistintoPutconClaveValor() throws TDDException {
+	public void PutYGetDistintoPutconClaveValor() throws TDDException {
 		tdd.put("Nombre", "Luis");
 		assertEquals("Luis", tdd.get("Nombre"));
 	}
 
 	@Test
-	public void PUTGETconValorNumeros() throws TDDException {
+	public void PutYGetConValorNumeros() throws TDDException {
 		tdd.put("DNI", "1234");
 		assertEquals("1234", tdd.get("DNI"));
 	}
 
 	@Test
-	public void PUTGETDistintoPutconValorVacio() throws TDDException {
+	public void PutYGetDistintoPutconValorVacio() throws TDDException {
 		tdd.put("pais", "");
 		assertEquals("", tdd.get("pais"));
 	}
 
 	@Test
-	public void PUTGETDosClaveValorDistintos() throws TDDException {
+	public void PutYGetDosClaveValorDistintos() throws TDDException {
 		tdd.put("Nombre", "Pepe");
 		assertEquals("Pepe", tdd.get("Nombre"));
 		tdd.put("Apellido", "Martin");
@@ -39,7 +39,7 @@ public class testsTDD {
 	}
 
 	@Test
-	public void PUTGETDosClavesDiferentesConDosValoresIguales()
+	public void PutGetDosClavesDiferentesConDosValoresIguales()
 			throws TDDException {
 		tdd.put("Nombre", "Pepe");
 		assertEquals("Pepe", tdd.get("Nombre"));
@@ -48,15 +48,26 @@ public class testsTDD {
 	}
 
 	@Test
-	public void PUTLaClaveExisteReemplazaValorExistente() throws TDDException {
+	public void PutLaClaveExisteReemplazaValorExistente() throws TDDException {
 		tdd.put("Nombre", "Luis");
 		tdd.put("Nombre", "Pepe");
 		assertEquals("Pepe", tdd.get("Nombre"));
 	}
 
 	@Test(expected = TDDException.class)
-	public void GETClaveNoExiste() throws TDDException {
+	public void GetClaveNoExiste() throws TDDException {
 		tdd.get("NoExisto");
 	}
 
+	@Test
+	public void GetOrElseBuscaLaClaveYLaEncuentra() {
+		tdd.put("Nombre", "Luis");
+		assertEquals("Luis", tdd.getorelse("Luis"));
+	}
+	
+	@Test
+	public void GetOrElseBuscaLaClaveYnoExisteSacaValorDefault() {
+		tdd.put("Nombre","Luis");
+		assertEquals("ValorPorDefecto", tdd.getorelse("NoExisteNombre"));
+	}
 }
